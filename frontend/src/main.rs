@@ -9,7 +9,7 @@ enum Route {
 
 fn switch(routes: Route) -> Html {
     match routes {
-        Route::Home => html! { <h1>{ "Welcome to Beer Service" }</h1> },
+        Route::Home => html! { <h1>{ "Welcome to Beer Service V2" }</h1> },
     }
 }
 
