@@ -1,0 +1,25 @@
+# .github/workflows/ci.yml
+name: CI Action
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  frontend-ci:
+    uses: Smokey-Olive/main-service/.github/workflows/reusable-frontend-ci.yml@main
+    with:
+      service-name: "beer-service"
+    secrets:
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+
+  server-ci:
+    uses: Smokey-Olive/main-service/.github/workflows/reusable-server-ci.yml@main
+    with:
+      service-name: "beer-service"
+    secrets:
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}

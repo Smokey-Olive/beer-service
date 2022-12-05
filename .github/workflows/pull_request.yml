@@ -1,0 +1,17 @@
+# .github/workflows/pull_request.yml
+name: Pull Request Action
+
+on:
+  pull_request:
+    types: ["opened", "reopened", "synchronize"]
+
+jobs:
+  frontend-pr-check:
+    uses: Smokey-Olive/main-service/.github/workflows/reusable-frontend-pr-check.yml@main
+    with:
+      service-name: "beer-service"
+
+  server-pr-check:
+    uses: Smokey-Olive/main-service/.github/workflows/reusable-server-pr-check.yml@main
+    with:
+      service-name: "beer-service"
